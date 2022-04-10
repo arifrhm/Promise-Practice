@@ -84,14 +84,27 @@ axios.get('https://newsapi.org/v2/top-headlines?country=us&apiKey=f14a4c4312d040
 //         }).catch(err => console.error(err));
 //     }
 // });
-// 'https://newsapi.org/v2/everything?q='+'tesla'+'&from=\
-//          2022-03-10&sortBy=publishedAt&apiKey=f14a4c4312d0401eb354cd0d3739f8f1'
+// 'https://newsapi.org/v2/everything?q='+'tesla'+'&from=2022-03-10&sortBy=publishedAt&apiKey=f14a4c4312d0401eb354cd0d3739f8f1'
 https://newsapi.org/v2/top-headlines/sources?apiKey=
 axios.get('https://newsapi.org/v2/top-headlines?country=us&apiKey=f14a4c4312d0401eb354cd0d3739f8f1')
          .then(res => {
              console.log("res.data :",res.data);
   document.getElementById('data').innerHTML = render(res.data.articles);
-})
+});
+
+//When user search with keyword
+var searchInput = document.querySelector('input');
+    searchInput.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            console.log("this search have value");
+
+        axios.get('https://newsapi.org/v2/everything?q='+searchInput.value.toLowerCase()+'&sortBy=publishedAt&apiKey=f14a4c4312d0401eb354cd0d3739f8f1')
+            .then(res => {
+                console.log("Res data from change event on search input :",res.data);
+                document.getElementById('data').innerHTML = render(res.data.articles); // Do something
+    })}});
+
+    
 
 function render(result) {
   let table = '';
@@ -123,8 +136,8 @@ function render(result) {
   return table;
 } 
 
-function message(msg) {
-  return `<tr>
-            <td class="text-center" colspan="8">${msg}</td>
-        </tr>`;
-}
+// function message(msg) {
+//   return `<tr>
+//             <td class="text-center" colspan="8">${msg}</td>
+//         </tr>`;
+// }
