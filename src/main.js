@@ -26,14 +26,12 @@
 // });
 
 
-fetch('https://newsapi.org/v2/everything?q=tesla\
-&from=2022-03-10&sortBy=publishedAt&apiKey=f14a4c4312d0401eb354cd0d3739f8f1'
+fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=f14a4c4312d0401eb354cd0d3739f8f1'
 ).then(console.log("From fetch :"))
 		.then(response => console.log(response.json()));
 
 
-axios.get('https://newsapi.org/v2/everything?q=tesla\
-&from=2022-03-10&sortBy=publishedAt&apiKey=f14a4c4312d0401eb354cd0d3739f8f1')
+axios.get('https://newsapi.org/v2/top-headlines?country=us&apiKey=f14a4c4312d0401eb354cd0d3739f8f1')
 .then(function (response) {
 	// handle success
 	console.log("from Axios.get :");
@@ -86,9 +84,10 @@ axios.get('https://newsapi.org/v2/everything?q=tesla\
 //         }).catch(err => console.error(err));
 //     }
 // });
-
-axios.get('https://newsapi.org/v2/everything?q='+'tesla'+'&from=\
-         2022-03-10&sortBy=publishedAt&apiKey=f14a4c4312d0401eb354cd0d3739f8f1')
+// 'https://newsapi.org/v2/everything?q='+'tesla'+'&from=\
+//          2022-03-10&sortBy=publishedAt&apiKey=f14a4c4312d0401eb354cd0d3739f8f1'
+https://newsapi.org/v2/top-headlines/sources?apiKey=
+axios.get('https://newsapi.org/v2/top-headlines?country=us&apiKey=f14a4c4312d0401eb354cd0d3739f8f1')
          .then(res => {
              console.log("res.data :",res.data);
   document.getElementById('data').innerHTML = render(res.data.articles);
@@ -96,7 +95,7 @@ axios.get('https://newsapi.org/v2/everything?q='+'tesla'+'&from=\
 
 function render(result) {
   let table = '';
-  result.slice(0, 9).forEach(data => {
+  result.slice(0,9).forEach(data => {
     // table += `<tr>
     //             <td>${data.author}</td>
     //             <td>${data.title}</td>
@@ -106,7 +105,7 @@ function render(result) {
     //             <td>${data.url}</td>
     //             <td>${data.urlToImage}</td>
     //           </tr>`;
-             table+= `<div id="col1" class="col-md-4">
+             table+= `<div class="col-md-4">
               <div class="card mb-4 box-shadow">
                 <img class="card-img-top" src=${data.urlToImage}>
                 <div class="card-body">
