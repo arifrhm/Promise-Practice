@@ -91,7 +91,7 @@ axios.get('https://newsapi.org/v2/everything?q='+'tesla'+'&from=\
          2022-03-10&sortBy=publishedAt&apiKey=f14a4c4312d0401eb354cd0d3739f8f1')
          .then(res => {
              console.log("res.data :",res.data);
-  document.getElementById('data-table').innerHTML = render(res.data.articles);
+  document.getElementById('data').innerHTML = render(res.data.articles);
 })
 
 function render(result) {
