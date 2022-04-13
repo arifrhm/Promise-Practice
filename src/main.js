@@ -123,7 +123,7 @@ function render(result) {
                 <img class="card-img-top" src=${data.urlToImage}>
                 <div class="card-body">
                   <p class="card-text"><b>${data.title}</b></p>
-                  <p class="card-text">${data.content.slice(0,145)}...
+                  <p class="card-text">${data.content}...
                   <a href=${data.url}>Read More</a></p>
                   <div class="d-flex justify-content-between align-items-center">
                     <small class="text-muted">${data.author}</small>
