@@ -2,14 +2,16 @@
 
 Lakukan clone pada terminal :
 
-
+```
 git clone https://github.com/arifrhm/Promise-Practice.git
+```
 
 Lalu jalankan php server seperti berikut di terminal :
 
-
+```
 php -S localhost:8888
 
+```
 
 Untuk nilai '8888' bisa diganti berapapun selama tidak conflict dengan port development yang dipakai.
 
